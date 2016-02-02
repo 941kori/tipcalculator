@@ -1,0 +1,33 @@
+# tip calculator
+print `clear`
+print "Please tell me the amount of your bill:"
+print `say Please tell me the amount of your bill`
+bill_amount = gets.chomp.to_f
+print "$%.2f." % bill_amount
+# print "\nPlease enter the percent amount you'd like to leave as tip:"
+print "\nSelect the tip amount that you'd like to leave:"
+print "\na: 10% \nb: 15% \nc: 20% \nd: Enter your own amount\n"
+answer = gets.chomp
+case answer
+when "a"
+  answer = "10"
+when "b"
+  answer = "15"
+when "c"
+  answer = "20"
+when "d"
+  print "\nPlease enter the percent amount you'd like to leave as tip:"
+  answer = gets.chomp
+end
+tip_amount = answer.to_i
+print "#{answer}%"
+print "\nHow many people are at your table?\n"
+people_amount = gets.chomp.to_i
+
+total_tip = bill_amount * tip_amount / 100
+
+total_bill = (total_tip + bill_amount).round(2)
+print "\nThe bill including the tip is $%.2f." % total_bill
+share = (total_bill.to_f / people_amount.to_f).round(2).to_s
+print "\nThe amount that you owe is $%.2f." % share
+puts ""
